@@ -10,6 +10,13 @@ const listAll = async (): Promise<IProduct[]> => {
   return result as IProduct[];
 };
 
+const listById = async (id: number) => {
+  const query = 'SELECT id FROM Trybesmith.Products WHERE orderId=?';
+  const [result] = await connection.execute<RowDataPacket[]>(query, [id]);
+
+  return result[0].id as IProduct[];
+};
+
 const create = async ({ name, amount }: IProduct): Promise<{ item: IProduct }> => {
   console.log(name, amount);
   const query = 'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)';
@@ -28,4 +35,5 @@ const create = async ({ name, amount }: IProduct): Promise<{ item: IProduct }> =
 export default {
   listAll,
   create,
+  listById,
 };
