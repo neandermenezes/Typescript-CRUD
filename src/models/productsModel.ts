@@ -10,11 +10,11 @@ const listAll = async (): Promise<IProduct[]> => {
   return result as IProduct[];
 };
 
-const listById = async (id: number) => {
+const listById = async (id: number): Promise<number> => {
   const query = 'SELECT id FROM Trybesmith.Products WHERE orderId=?';
   const [result] = await connection.execute<RowDataPacket[]>(query, [id]);
 
-  return result[0].id as IProduct[];
+  return result[0].id;
 };
 
 const create = async ({ name, amount }: IProduct): Promise<{ item: IProduct }> => {
