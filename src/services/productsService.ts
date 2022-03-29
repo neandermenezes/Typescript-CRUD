@@ -7,6 +7,13 @@ const listAll = async (): Promise<IProduct[]> => {
   return products;
 };
 
+const create = async ({ name, amount }: IProduct): Promise<{ item: IProduct }> => {
+  const createdProduct = await productsModel.create({ name, amount });
+
+  return createdProduct;
+};
+
 export default {
   listAll,
+  create,
 };
