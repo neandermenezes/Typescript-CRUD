@@ -322,7 +322,7 @@ describe.skip("4 - Crie um endpoint para listar todos os pedidos", () => {
   });
 });
 
-describe("5 - Crie um endpoint para o login de pessoas usuárias", () => {
+describe.skip("5 - Crie um endpoint para o login de pessoas usuárias", () => {
   beforeAll(async () => {
     await recreateDatabase();
   });
@@ -375,7 +375,7 @@ describe("5 - Crie um endpoint para o login de pessoas usuárias", () => {
   });
 });
 
-describe.skip("6 - Crie um endpoint para o cadastro de um pedido", () => {
+describe("6 - Crie um endpoint para o cadastro de um pedido", () => {
   let token: string;
 
   beforeEach(async () => {
